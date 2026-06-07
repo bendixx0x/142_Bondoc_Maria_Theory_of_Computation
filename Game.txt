@@ -1,0 +1,41 @@
+HellHeavenMap.txt
+
+section:
+Sigma 
+N, S, E, W
+END
+
+section:
+Gama 
+$
+END
+
+section:
+Stari
+entrance, lab, library, workshop, garden
+END
+
+section:
+StareInitiala
+entrance
+END
+
+section:
+StareFinala
+garden
+END
+
+section:
+StareSpeciala
+lab, key
+library, key
+END
+
+section:
+Delta
+entrance, W, lab
+entrance, N, library
+library, W, workshop
+workshop, N, garden
+lab, E, entrance
+END

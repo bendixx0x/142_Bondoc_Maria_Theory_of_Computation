@@ -1,0 +1,24 @@
+section:
+Sigma 
+dog, cat, eat, chase
+END
+
+section:
+Variabile
+P, S, V
+END
+
+section:
+VariabilaInitiala
+P
+END
+
+section:
+Substitution
+P, SV
+P, SVS
+S, dog
+S, cat
+V, eat
+V, chase
+END

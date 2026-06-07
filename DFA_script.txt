@@ -1,0 +1,29 @@
+DFA_script
+
+section:
+Sigma 
+0, 1
+END
+
+section:
+Stari
+q0, q1
+END
+
+section:
+StareInitiala
+q0
+END
+
+section:
+StareFinala
+q1
+END
+
+section:
+Delta
+q0, 0, q0
+q0, 1, q1
+q1, 0, q0
+q1, 1, q1
+END

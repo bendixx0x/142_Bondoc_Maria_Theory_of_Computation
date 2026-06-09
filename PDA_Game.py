@@ -25,9 +25,8 @@ def validare(d):
     
    
     configuratii = [(stareInitiala, ['$'], set())]
-
-    # Verificam starea initiala: are cheie?
-    configuratii = _colecteazaChei(configuratii, stareInitiala, stariSpeciale)
+                                                                       
+    configuratii = _colecteazaChei(configuratii, stareInitiala, stariSpeciale)                  # Verificarea starii initiale
 
     for pas in pasi:
         if pas not in sigma:
@@ -42,7 +41,6 @@ def validare(d):
                 stivaNou = list(stiva)
                 vizitateNoi = set(vizitate)
 
-                # Daca starea noua are cheie si n-am luat-o inca
                 if stareNoua in stariSpeciale and stareNoua not in vizitateNoi:
                     stivaNou.append(stariSpeciale[stareNoua])  # punem cheia pe stiva
                     vizitateNoi.add(stareNoua)
@@ -55,8 +53,7 @@ def validare(d):
             print("Nu exista nicio cale valida. Drum blocat!")
             return
 
-    # Verificam conditiile de acceptare
-    numarCheiNecesare = len(stariSpeciale)  # 2 in cazul tau
+    numarCheiNecesare = len(stariSpeciale)                                                      # Verificarea conditiei de acceptare
     
     for (stare, stiva, vizitate) in configuratii:
         cheiPeStiva = [x for x in stiva if x != '$']
@@ -64,7 +61,6 @@ def validare(d):
             print(f"Drum acceptat! Ai ajuns in '{stare}' cu {len(cheiPeStiva)} chei: {cheiPeStiva}")
             return
 
-    # Afisam de ce a esuat
     for (stare, stiva, vizitate) in configuratii:
         cheiPeStiva = [x for x in stiva if x != '$']
         if stare in stariFinale:

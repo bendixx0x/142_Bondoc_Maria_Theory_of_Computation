@@ -1,3 +1,4 @@
+import sys
 from schelet import *
 
 def delta(d, stareCurenta, caracter):
@@ -6,8 +7,7 @@ def delta(d, stareCurenta, caracter):
             return functie[2]
     return None
             
-def validare(d):
-    string = input("Introdu cuvantul pe care vrei sa il verifici:")
+def validare(d, string):
     stareCurenta = d.get("StareInitiala", [])[0][0]
     for c in string:
         if c not in d.get("Sigma", [])[0]:
@@ -17,16 +17,17 @@ def validare(d):
             stareCurenta = delta(d, stareCurenta, c)
 
     if stareCurenta in d.get("StareFinala", [])[0]:
-        print("Cale sigura!")
+        print("Cuvant acceptat!")
     else:
         print("Cuvantul nu este acceptat")
 
-def finalizare(fisier):
+def finalizare(fisier, string):
     with open(fisier) as f:
         d = readFile(f)
-        validare(d)
+        validare(d, string)
 
-finalizare("DFA_script.txt")
-
-
-#fara input -> ar fi mai bine sa fie in command line
+if len(sys.argv) != 2:
+    print("Utilizare: python3 DFA_emulator.py <cuvant>")
+else:
+    cuvant = sys.argv[1]
+    finalizare("DFA_script.txt", cuvant)
